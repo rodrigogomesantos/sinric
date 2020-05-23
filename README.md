@@ -1,3 +1,7 @@
+Support OTA
+WifiMananger
+Support ESP32 and ESP8266
+
 # Sinric
 
 [![](https://img.shields.io/github/repo-size/kakopappa/sinric.svg)]() [![](https://img.shields.io/github/last-commit/kakopappa/sinric.svg)]() [![](https://img.shields.io/github/forks/kakopappa/sinric.svg?style=social)]() [![](https://img.shields.io/github/stars/kakopappa/sinric.svg?style=social)]() [![](https://img.shields.io/badge/author-Aruna%20Tennakoon-brightgreen.svg)](https://github.com/kakopappa)
