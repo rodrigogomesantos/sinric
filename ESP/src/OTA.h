@@ -1,6 +1,9 @@
-#include <configs.h>
-#include <ESP8266WiFi.h>
-#include <ESP8266mDNS.h>
+#if defined(ESP8266)
+#include <ESP8266mDNS.h>   
+#else
+#include <ESPmDNS.h> 
+#endif
+
 #include <WiFiUdp.h>
 #include <ArduinoOTA.h>
 
@@ -30,7 +33,5 @@
     else if (error == OTA_END_ERROR) Serial.println("Falha no Fim");
   });
   ArduinoOTA.begin();
-  Serial.println("Pronto");
-  Serial.print("Endereco IP: ");
-  Serial.println(WiFi.localIP());
+  Serial.println("OTA Started");
 }

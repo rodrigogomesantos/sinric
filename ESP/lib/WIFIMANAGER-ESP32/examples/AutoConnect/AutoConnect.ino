@@ -1,10 +1,18 @@
-#include <Arduino.h>
-
+#if defined(ESP8266)
 #include <ESP8266WiFi.h>          //https://github.com/esp8266/Arduino
+#else
+#include <WiFi.h>          //https://github.com/esp8266/Arduino
+#endif
+
+//needed for library
 #include <DNSServer.h>
+#if defined(ESP8266)
 #include <ESP8266WebServer.h>
+#else
+#include <WebServer.h>
+#endif
 #include <WiFiManager.h>         //https://github.com/tzapu/WiFiManager
-#include <OTA.h>
+
 
 void setup() {
     // put your setup code here, to run once:
@@ -21,19 +29,18 @@ void setup() {
 
     //fetches ssid and pass from eeprom and tries to connect
     //if it does not connect it starts an access point with the specified name
-
-    wifiManager.autoConnect(espName);
+    //here  "AutoConnectAP"
+    //and goes into a blocking loop awaiting configuration
+    wifiManager.autoConnect("AutoConnectAP");
     //or use this for auto generated name ESP + ChipID
     //wifiManager.autoConnect();
 
+    
     //if you get here you have connected to the WiFi
     Serial.println("connected...yeey :)");
-
-    initOTA();
 }
 
 void loop() {
-    ArduinoOTA.handle();
     // put your main code here, to run repeatedly:
     
 }
